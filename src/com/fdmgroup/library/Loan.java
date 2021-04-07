@@ -7,7 +7,7 @@ public class Loan {
 	private Book loanedBook;
 	private LibraryCard cardUsedForLoan;
 	private String checkOutDate;
-	private String checkOUtDate;
+	private String checkInDate;
 	private boolean isActive;
 
 	// constructor
@@ -36,20 +36,20 @@ public class Loan {
 		this.cardUsedForLoan = cardUsedForLoan;
 	}
 
-	public String getCheckOutDate() {
+	public String getCheckInDate() {
+		return checkInDate;
+	}
+
+	public void setCheckInDate(String checkInDate) {
+		this.checkInDate = checkInDate;
+	}
+
+	public String checkOutDate() {
 		return checkOutDate;
 	}
 
 	public void setCheckOutDate(String checkOutDate) {
 		this.checkOutDate = checkOutDate;
-	}
-
-	public String getCheckOUtDate() {
-		return checkOUtDate;
-	}
-
-	public void setCheckOUtDate(String checkOUtDate) {
-		this.checkOUtDate = checkOUtDate;
 	}
 
 	public boolean isActive() {
