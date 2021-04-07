@@ -51,16 +51,4 @@ public class LibraryCard {
 	public void addLoan(Loan newLoan) {
 		loans.add(newLoan);
 	}
-
-	// remove loan from borrowedBooks (simulate checkIn) --- INTERFACE???
-
-	// get list of books borrowed + number of times borrowed
-
-	// TODO add booksBorrowed() - enumerate through loans
-	// make hashmap - ISBN : #ofTimesBorrowed
-	// output : each line "Book Title ISBN #ofTimesBorrowed (extra functionality
-	// active status)
-	// TODO add attribute loans - arraylist of all borrowed books
-	// TODO add activeLoans() - filter loans list for active=true
-	// list book title, isbn, checkout, checkin. order by checkin
 }

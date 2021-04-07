@@ -4,11 +4,11 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Loan {
-	private Book loanedBook;
-	private LibraryCard cardUsedForLoan;
-	private String checkOutDate;
-	private String checkInDate;
-	private boolean isActive;
+	private Book loanedBook; // get
+	private LibraryCard cardUsedForLoan; // get
+	private String checkOutDate; // get
+	private String checkInDate; // get
+	private boolean isActive; // get & set
 
 	// constructor
 	public Loan(Book book, LibraryCard lCard) {
@@ -24,39 +24,23 @@ public class Loan {
 		return loanedBook;
 	}
 
-	public void setLoanedBook(Book loanedBook) {
-		this.loanedBook = loanedBook;
-	}
-
 	public LibraryCard getCardUsedForLoan() {
 		return cardUsedForLoan;
-	}
-
-	public void setCardUsedForLoan(LibraryCard cardUsedForLoan) {
-		this.cardUsedForLoan = cardUsedForLoan;
 	}
 
 	public String getCheckInDate() {
 		return checkInDate;
 	}
 
-	public void setCheckInDate(String checkInDate) {
-		this.checkInDate = checkInDate;
-	}
-
-	public String checkOutDate() {
+	public String getCheckOutDate() {
 		return checkOutDate;
-	}
-
-	public void setCheckOutDate(String checkOutDate) {
-		this.checkOutDate = checkOutDate;
 	}
 
 	public boolean isActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
