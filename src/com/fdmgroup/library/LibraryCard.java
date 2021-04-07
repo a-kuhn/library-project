@@ -3,21 +3,21 @@ package com.fdmgroup.library;
 import java.util.ArrayList;
 
 public class LibraryCard {
-	private int cardNum;
+	private int libraryCardID;
 	private ArrayList<Book> borrowedBooks;
 
 	// Constructor
 	public LibraryCard(int cardNumber) {
-		cardNum = cardNumber;
+		libraryCardID = cardNumber;
 	}
 
 	// Getters & Setters
-	public int getCardNum() {
-		return cardNum;
+	public int getLibraryCardID() {
+		return libraryCardID;
 	}
 
-	public void setCardNum(int cardNum) {
-		this.cardNum = cardNum;
+	public void setLibraryCardNID(int cardNum) {
+		this.libraryCardID = cardNum;
 	}
 
 	// get list of all books borrowed
