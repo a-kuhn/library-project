@@ -1,31 +1,63 @@
 package com.fdmgroup.library;
 
-import java.util.Date;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Loan {
-	private Date checkOutDate;
-	private Date checkOUtDate;
 	private Book loanedBook;
 	private LibraryCard cardUsedForLoan;
+	private String checkOutDate;
+	private String checkOUtDate;
 	private boolean isActive;
-// constructor will set checkoutDate as currentDate upon creation
-//	set checkIn to 2 weeks after current date
-//	set active to true as default
 
 	// constructor
 	public Loan(Book book, LibraryCard lCard) {
-		Date checkOutDate = new Date();
-		Date checkInDate = ;
-		 isActive = true;
+		Book loanedBook = book;
+		LibraryCard cardUsedForLoan = lCard;
+		LocalDate checkOutDate = LocalDate.now();
+		LocalDate checkInDate = checkOutDate.plus(2, ChronoUnit.WEEKS);
+		isActive = true;
 	}
 
-	// date formatter
-	public String dateFormatter(Date dateToFormat) {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		LocalDateTime now = LocalDateTime.now();
-		return dtf.format(now);
+	// getters & setters
+	public Book getLoanedBook() {
+		return loanedBook;
+	}
+
+	public void setLoanedBook(Book loanedBook) {
+		this.loanedBook = loanedBook;
+	}
+
+	public LibraryCard getCardUsedForLoan() {
+		return cardUsedForLoan;
+	}
+
+	public void setCardUsedForLoan(LibraryCard cardUsedForLoan) {
+		this.cardUsedForLoan = cardUsedForLoan;
+	}
+
+	public String getCheckOutDate() {
+		return checkOutDate;
+	}
+
+	public void setCheckOutDate(String checkOutDate) {
+		this.checkOutDate = checkOutDate;
+	}
+
+	public String getCheckOUtDate() {
+		return checkOUtDate;
+	}
+
+	public void setCheckOUtDate(String checkOUtDate) {
+		this.checkOUtDate = checkOUtDate;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }
