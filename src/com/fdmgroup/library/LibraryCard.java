@@ -20,11 +20,12 @@ public class LibraryCard {
 		this.cardNum = cardNum;
 	}
 
-	// get list all books borrowed
+	// get list of all books borrowed
 	public ArrayList<Book> getBorrowedBooks() {
 		return borrowedBooks;
 	}
 
+	// add new book to borrowedBooks
 	public void setBorrowedBooks(ArrayList<Book> borrowedBooks) {
 		this.borrowedBooks = borrowedBooks;
 	}
@@ -32,4 +33,11 @@ public class LibraryCard {
 	// get list of books borrowed + number of times borrowed
 	// need to keep track
 
+	// TODO add booksBorrowed() - enumerate through loans
+	// make hashmap - ISBN : #ofTimesBorrowed
+	// output : each line "Book Title ISBN #ofTimesBorrowed (extra functionality
+	// active status)
+	// TODO add attribute loans - arraylist of all borrowed books
+	// TODO add activeLoans() - filter loans list for active=true
+	// list book title, isbn, checkout, checkin. order by checkin
 }
