@@ -1,9 +1,6 @@
 package com.fdmgroup.library;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class LibraryCard {
 	private int libraryCardID;
@@ -25,33 +22,29 @@ public class LibraryCard {
 	}
 
 	// get list of all books borrowed
-	public ArrayList<Loan> listBorrowedBooks() {
-		Map<String, Integer> loansMap = new HashMap<String, Integer>();
-		ArrayList<Loan> loansList = loans;
-		Iterator it =  new loansList.iterator();
-
-		while (it.hasNext()) {
-			Loan tempLoan = it.Next();
-			if (tempLoan.isActive()) {
-				String bookinfo = tempLoan.getLoanedBook().getISBN() + ": " + tempLoan.getLoanedBook().getTitle();
-				if(loansMap.containsKey(bookInfo)) {
-					int tempInt = 
-				}
+	public void loansList() {
+		for (Loan l : loans) {
+			if (l.isActive()) {
+				System.out.println(l.getLoanedBook().getTitle());
 			}
 		}
-		
-		return loans;
 	}
 
-	public ArrayList<Loan> loansList() {
-		ArrayList<Loan> activeLoans = new ArrayList<Loan>();
+	public String findCheckedOutTitles() {
+		StringBuilder stBuild = new StringBuilder("");
+		int counter = 0;
 
 		for (Loan l : loans) {
 			if (l.isActive()) {
-				activeLoans.add(l);
+				if (counter != 0) {
+					stBuild.append(", ");
+				}
+				stBuild.append(l.getLoanedBook().getTitle());
+				counter++;
 			}
 		}
-		return activeLoans;
+		String myString = stBuild.toString();
+		return myString;
 	}
 
 	// add new book to borrowedBooks
