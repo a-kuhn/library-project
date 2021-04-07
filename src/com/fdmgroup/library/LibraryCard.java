@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LibraryCard {
 	private int libraryCardID;
-	private ArrayList<Book> borrowedBooks;
+	private ArrayList<Loan> borrowedBooks;
 
 	// Constructor
 	public LibraryCard(int cardNumber) {
@@ -21,17 +21,18 @@ public class LibraryCard {
 	}
 
 	// get list of all books borrowed
-	public ArrayList<Book> getBorrowedBooks() {
+	public ArrayList<Loan> getBorrowedBooks() {
 		return borrowedBooks;
 	}
 
 	// add new book to borrowedBooks
-	public void setBorrowedBooks(ArrayList<Book> borrowedBooks) {
-		this.borrowedBooks = borrowedBooks;
+	public void setBorrowedBooks(Loan newLoan) {
+		borrowedBooks.add(newLoan);
 	}
 
+	// remove loan from borrowedBooks (simulate checkIn) --- INTERFACE???
+
 	// get list of books borrowed + number of times borrowed
-	// need to keep track
 
 	// TODO add booksBorrowed() - enumerate through loans
 	// make hashmap - ISBN : #ofTimesBorrowed
