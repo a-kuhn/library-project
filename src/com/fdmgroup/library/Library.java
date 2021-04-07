@@ -33,11 +33,11 @@ public class Library {
 	}
 
 	public boolean addPatron(Patron p) {
-		if (patrons.contains(l)) {
+		if (patrons.contains(p)) {
 			System.err.print("Patron Already Exists");
 			return false;
 		} else {
-			librarians.add(l);
+			patrons.add(p);
 			return true;
 		}
 	}
@@ -53,10 +53,10 @@ public class Library {
 	}
 
 	public Book searchBooks(String title) {
-		Iterator<E> iter = books.iterator();
+		Iterator<Book> iter = books.iterator();
 		while (iter.hasNext()) {
-			Book tempBook = iter.hasNext();
-			if (tempBook.getTitle.equals(title)) {
+			Book tempBook = iter.next();
+			if (tempBook.getTitle().equals(title)) {
 				return tempBook;
 			}
 		}
@@ -67,8 +67,8 @@ public class Library {
 	public Book searchBooks(int ISBN) {
 		Iterator<Book> iter = books.iterator();
 		while (iter.hasNext()) {
-			Book tempBook = iter.hasNext();
-			if (tempBook.getISBN == ISBN) {
+			Book tempBook = iter.next();
+			if (tempBook.getISBN() == ISBN) {
 				return tempBook;
 			}
 		}
@@ -97,46 +97,44 @@ public class Library {
 
 		tempCard.addLoan(newLoan);
 
-		tempBook.setNumOnHand() = tempBook.getNumOnHand() - 1;
+		tempBook.setNumOnHand(tempBook.getNumOnHand() - 1);
+
+		return true;
 	}
 
-	public boolean checkInBook(int ISBN, Patron p)
-    {
-   	 Book tempBook;
-   	 Loan loanEnding;
-   	 LibraryCard card;
-   	 
-   	 card = p.getLibraryCard();
-   	 
-   	 Iterator<Loan> iter = loans.iterator();
-   	 
-   	 while(iter.hasNext())
-   	 {
-   		 loanEnding = iter.next();
-   		 if((loanEnding.getBook().getISBN == ISBN)
-   				 && (card.getCardNum() == loanEnding.getLibraryCard().getCardNum())
-   		 {
-   			 loanEnding.setIsActive(false);
-   			 tempBook = loanEnding.getBook();
-   			 tempBook.setNumOnHand() = tempBook.getNumOnHand() + 1;
-   			 return true;
-   		 }
-   	 }
-   	 
-   	 return false;
-    }
+	public boolean checkInBook(int ISBN, Patron p) {
+		Book tempBook;
+		Loan loanEnding;
+		LibraryCard card;
 
-	public void printCheckedOutBooks()
-    {
-   	 Patron currentPatron;
-   	 Iterator<Patron> iter = patrons.iterator();
-   	 
-   	 System.out.println("Current Patrons and Checked Out Books"):
-   	 
-   	 while(iter.hasNex())
-   	 {
-   		 currentPatron = iter.next();
-   		 System.out.println(currentPatron.getName() + ": " + currentPatron.getLibraryCard().findCheckedOutTitles());
-   	 }
-    }
+		card = p.getLibraryCard();
+
+		Iterator<Loan> iter = loans.iterator();
+
+		while (iter.hasNext()) {
+			loanEnding = iter.next();
+			if ((loanEnding.getLoanedBook().getISBN() == ISBN)
+					&& (card.getCardNum() == loanEnding.getCardUsedForLoan().getCardNum())) {
+				loanEnding.setIsActive(false);
+				tempBook = loanEnding.getLoanedBook();
+				tempBook.setNumOnHand(tempBook.getNumOnHand() + 1);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public void printCheckedOutBooks() {
+		Patron currentPatron;
+		Iterator<Patron> iter = patrons.iterator();
+
+		System.out.println("Current Patrons and Checked Out Books");
+
+		while (iter.hasNext()) {
+			currentPatron = iter.next();
+			System.out.println(
+					currentPatron.getFullName() + ": " + currentPatron.getLibraryCard().findCheckedOutTitles());
+		}
+	}
 }

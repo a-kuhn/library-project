@@ -3,22 +3,22 @@ package com.fdmgroup.library;
 import java.util.ArrayList;
 
 public class LibraryCard {
-	private int libraryCardID;
+	private int cardNum;
 	private ArrayList<Loan> loans;
 
 	// Constructor
 	public LibraryCard(int cardNumber) {
-		libraryCardID = cardNumber;
+		cardNum = cardNumber;
 		loans = new ArrayList<Loan>();
 	}
 
 	// Getters & Setters
-	public int getLibraryCardID() {
-		return libraryCardID;
+	public int getCardNum() {
+		return cardNum;
 	}
 
-	public void setLibraryCardNID(int cardNum) {
-		this.libraryCardID = cardNum;
+	public void setLibraryCardNID(int cardNumber) {
+		this.cardNum = cardNumber;
 	}
 
 	// get list of all books borrowed
