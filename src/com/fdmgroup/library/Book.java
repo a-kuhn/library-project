@@ -1,20 +1,30 @@
 package com.fdmgroup.library;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Book {
 	private String title;
 	private int ISBN;
-
+	private ArrayList<Author> authors;
 	private int totalCopies;
 	private int numOnHand;
 
 //	private Author bookAuthor;
 
 	// constructor
-	public Book(String bookTitle, int bookID, int numCopies) {
+	public Book(String bookTitle, int bookID, int numCopies, ArrayList<String> authors) {
 		ISBN = bookID;
 		title = bookTitle;
-		totalCopies = numCopies;
-		numOnHand = numCopies;
+		totalCopies = numCopies; // this info should belong to the library
+		numOnHand = numCopies; // this info should belong to the library
+		// constructor for Author built by parsing & splitting ArrayList<Stirng> authors
+		Iterator<String> it = authors.iterator();
+
+		while (it.hasNext()) {
+			String[] stArr = it.next().split(" ");
+			Author tempAuthor = new Author(stArr[0], stArr[1]);
+		}
 	}
 
 	// getters & setters

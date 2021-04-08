@@ -22,6 +22,8 @@ public class Library {
 		loans = new ArrayList<Loan>();
 	}
 
+	// should add method to count totalCopies & numAvailableCopies
+
 	public boolean addLibrarian(Librarian l) {
 		if (librarians.contains(l)) {
 			System.err.print("Librarian Already Exists");
@@ -68,6 +70,7 @@ public class Library {
 		Iterator<Book> iter = books.iterator();
 		while (iter.hasNext()) {
 			Book tempBook = iter.next();
+			System.out.println(tempBook.getTitle());
 			if (tempBook.getISBN() == ISBN) {
 				return tempBook;
 			}
@@ -96,6 +99,7 @@ public class Library {
 		newLoan = new Loan(tempBook, tempCard);
 
 		tempCard.addLoan(newLoan);
+		p.setLibraryCard(tempCard);
 
 		tempBook.setNumOnHand(tempBook.getNumOnHand() - 1);
 
@@ -129,12 +133,11 @@ public class Library {
 		Patron currentPatron;
 		Iterator<Patron> iter = patrons.iterator();
 
-		System.out.println("Current Patrons and Checked Out Books");
-
 		while (iter.hasNext()) {
 			currentPatron = iter.next();
-			System.out.println(
-					currentPatron.getFullName() + ": " + currentPatron.getLibraryCard().findCheckedOutTitles());
+			System.out.println(currentPatron.getFullName());
+//			System.out.println(
+//					currentPatron.getFullName() + ": " + currentPatron.getLibraryCard().findCheckedOutTitles());
 		}
 	}
 }
