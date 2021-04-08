@@ -9,4 +9,5 @@ public class Librarian extends Person {
 	}
 
 	// what are you even good for???
+	// Patron should interact with Librarian who then interacts with Library
 }
